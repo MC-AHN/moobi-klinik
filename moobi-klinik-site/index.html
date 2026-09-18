@@ -1,0 +1,1482 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Moobi Klinik — Klinik Lebih Rapi, Pasien Lebih Puas.</title>
+  <meta name="description"
+    content="Platform manajemen klinik end-to-end, terintegrasi BPJS dan SATUSEHAT. Pilih paket, bayar, dan langsung operasional.">
+  <style>
+    :root {
+      --blue: #185baa;
+      --navy: #102a56;
+      --cyan: #1599e5;
+      --purple: #5a2a9d;
+      --red: #e30613;
+      --ink: #183252;
+      --muted: #63748a;
+      --line: #dce8f5;
+      --bg: #f6faff;
+      --white: #fff;
+      --shadow: 0 20px 60px rgba(16, 42, 86, .12)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Aptos, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: auto
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .navin {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px
+    }
+
+    .logo {
+      height: 48px;
+      width: auto;
+      object-fit: contain
+    }
+
+    .links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700
+    }
+
+    .links a:hover {
+      color: var(--blue)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 20px;
+      border-radius: 9px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      cursor: pointer
+    }
+
+    .primary {
+      background: var(--blue);
+      color: #fff
+    }
+
+    .outline {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: #fff
+    }
+
+    .cyan {
+      background: var(--cyan);
+      color: #fff
+    }
+
+    .menu {
+      display: none;
+      border: 0;
+      background: none;
+      font-size: 28px
+    }
+
+    .hero {
+      background: radial-gradient(circle at 85% 20%, #dff3ff, transparent 32%), linear-gradient(135deg, #fff 0%, #eef7ff 100%);
+      padding: 82px 0 60px;
+      overflow: hidden
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      margin: 18px 0;
+      color: var(--navy)
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 590px
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0
+    }
+
+    .trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #42617d
+    }
+
+    .trust span {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px
+    }
+
+    .heroVisual {
+      position: relative
+    }
+
+    .dashboard {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 9px solid #fff;
+      display: block
+    }
+
+    .floating {
+      position: absolute;
+      right: -18px;
+      bottom: 22px;
+      background: #fff;
+      padding: 15px 18px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 800
+    }
+
+    .stats {
+      padding: 30px 0;
+      background: var(--navy);
+      color: #fff
+    }
+
+    .statsGrid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1.1
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #d6e7fb
+    }
+
+    .section {
+      padding: 88px 0
+    }
+
+    .soft {
+      background: var(--bg)
+    }
+
+    .sectionHead {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 42px
+    }
+
+    .sectionHead h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+      color: var(--navy);
+      margin: 0 0 14px
+    }
+
+    .sectionHead p {
+      color: var(--muted);
+      font-size: 17px
+    }
+
+    .painGrid,
+    .moduleGrid,
+    .articleGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .painGrid {
+      grid-template-columns: repeat(4, 1fr)
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 25px;
+      background: #fff;
+      box-shadow: 0 8px 30px rgba(16, 42, 86, .04)
+    }
+
+    .card .icon {
+      font-size: 30px
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin: 12px 0 6px;
+      font-size: 20px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .moduleGrid .card {
+      min-height: 190px
+    }
+
+    .moduleGrid a {
+      display: block;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      margin-top: 16px
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .split h2 {
+      font-size: 42px;
+      line-height: 1.15;
+      color: var(--navy);
+      letter-spacing: -.035em
+    }
+
+    .checklist {
+      padding: 0;
+      list-style: none
+    }
+
+    .checklist li {
+      margin: 12px 0;
+      padding-left: 28px;
+      position: relative
+    }
+
+    .checklist li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-weight: 900
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px
+    }
+
+    .step {
+      position: relative;
+      text-align: center;
+      padding: 28px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line)
+    }
+
+    .step b {
+      display: grid;
+      place-items: center;
+      margin: 0 auto 15px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 20px
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch
+    }
+
+    .price {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 34px;
+      background: #fff;
+      box-shadow: 0 12px 35px rgba(16, 42, 86, .06)
+    }
+
+    .price.popular {
+      border: 2px solid var(--blue);
+      transform: translateY(-8px)
+    }
+
+    .ribbon {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background: #e9f5ff;
+      color: var(--blue);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 900
+    }
+
+    .price h3 {
+      font-size: 30px;
+      color: var(--navy);
+      margin: 0
+    }
+
+    .price .desc {
+      color: var(--muted)
+    }
+
+    .amount {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--blue);
+      margin: 18px 0 2px
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .price ul {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0
+    }
+
+    .price li {
+      padding: 9px 0;
+      border-bottom: 1px solid #edf3f9;
+      font-size: 14px
+    }
+
+    .price li:before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 900;
+      margin-right: 8px
+    }
+
+    .compare {
+      overflow: auto;
+      margin-top: 35px
+    }
+
+    .compare table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden
+    }
+
+    .compare th,
+    .compare td {
+      padding: 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      font-size: 14px
+    }
+
+    .compare th {
+      background: #edf6ff;
+      color: var(--navy)
+    }
+
+    .yes {
+      color: #15945d;
+      font-weight: 900
+    }
+
+    .no {
+      color: #e30613;
+      font-weight: 900
+    }
+
+    .cta {
+      background: linear-gradient(120deg, var(--navy), #174d94);
+      color: #fff;
+      border-radius: 24px;
+      padding: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      line-height: 1.15;
+      margin: 0 0 10px
+    }
+
+    .cta p {
+      color: #d9e8fb;
+      margin: 0
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: auto
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--navy)
+    }
+
+    .footer {
+      background: #081d3b;
+      color: #d8e6f7;
+      padding: 55px 0 20px
+    }
+
+    .footerGrid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 35px
+    }
+
+    .footer h4 {
+      color: #fff;
+      margin-top: 0
+    }
+
+    .footer a {
+      display: block;
+      margin: 8px 0;
+      font-size: 14px
+    }
+
+    .footer p {
+      font-size: 14px
+    }
+
+    .bottom {
+      border-top: 1px solid #294261;
+      margin-top: 35px;
+      padding-top: 18px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap
+    }
+
+    .wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
+      background: #20b965;
+      color: #fff;
+      border-radius: 999px;
+      padding: 13px 17px;
+      font-weight: 900;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .18)
+    }
+
+    @media(max-width:900px) {
+      .links {
+        display: none
+      }
+
+      .menu {
+        display: block
+      }
+
+      .heroGrid,
+      .split {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding-top: 48px
+      }
+
+      .statsGrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .painGrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .moduleGrid,
+      .articleGrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .pricing {
+        grid-template-columns: 1fr
+      }
+
+      .price.popular {
+        transform: none
+      }
+
+      .footerGrid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px
+      }
+    }
+
+    @media(max-width:560px) {
+      .hero h1 {
+        font-size: 42px
+      }
+
+      .hero p {
+        font-size: 16px
+      }
+
+      .section {
+        padding: 60px 0
+      }
+
+      .painGrid,
+      .moduleGrid,
+      .articleGrid,
+      .workflow {
+        grid-template-columns: 1fr
+      }
+
+      .statsGrid {
+        gap: 18px
+      }
+
+      .stat strong {
+        font-size: 28px
+      }
+
+      .logo {
+        height: 40px
+      }
+
+      .floating {
+        right: 5px;
+        bottom: 8px;
+        font-size: 11px
+      }
+
+      .footerGrid {
+        grid-template-columns: 1fr
+      }
+
+      .cta h2 {
+        font-size: 30px
+      }
+
+      .btn {
+        width: 100%
+      }
+
+      .actions {
+        flex-direction: column
+      }
+
+      .trust {
+        gap: 7px
+      }
+    }
+
+    /* Enhanced interaction layer */
+    body {
+      overflow-x: hidden
+    }
+
+    .hero {
+      position: relative
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(24, 91, 170, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 91, 170, .045) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, #000, transparent 80%)
+    }
+
+    .reveal,
+    .reveal-card {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2, .75, .2, 1)
+    }
+
+    .reveal.is-visible,
+    .reveal-card.is-visible {
+      opacity: 1;
+      transform: none
+    }
+
+    .reveal-card:nth-child(2) {
+      transition-delay: .08s
+    }
+
+    .reveal-card:nth-child(3) {
+      transition-delay: .16s
+    }
+
+    .reveal-card:nth-child(4) {
+      transition-delay: .24s
+    }
+
+    .reveal-card:nth-child(5) {
+      transition-delay: .32s
+    }
+
+    .reveal-card:nth-child(6) {
+      transition-delay: .4s
+    }
+
+    .heroVisual {
+      perspective: 1200px
+    }
+
+    .parallax-card {
+      transition: transform .18s ease-out
+    }
+
+    .dashboard {
+      transition: filter .3s ease, box-shadow .3s ease
+    }
+
+    .dashboard:hover {
+      filter: saturate(1.08);
+      box-shadow: 0 28px 90px rgba(16, 42, 86, .22)
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(21, 153, 229, .25);
+      border-radius: 50%;
+      pointer-events: none
+    }
+
+    .orbit-one {
+      width: 330px;
+      height: 330px;
+      right: -90px;
+      top: -80px;
+      animation: spin 24s linear infinite
+    }
+
+    .orbit-two {
+      width: 210px;
+      height: 210px;
+      left: -65px;
+      bottom: -70px;
+      border-color: rgba(90, 42, 157, .22);
+      animation: spin 18s linear infinite reverse
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .eyebrow {
+      animation: pulseText 3s ease-in-out infinite
+    }
+
+    @keyframes pulseText {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .65
+      }
+    }
+
+    .btn {
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(24, 91, 170, .2)
+    }
+
+    .card,
+    .price,
+    .step {
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease
+    }
+
+    .card:hover,
+    .price:hover,
+    .step:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px rgba(16, 42, 86, .11);
+      border-color: #a8c9eb
+    }
+
+    .stat strong {
+      font-variant-numeric: tabular-nums
+    }
+
+    .statsGrid .stat {
+      position: relative
+    }
+
+    .statsGrid .stat:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 4px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 7px rgba(21, 153, 229, .12)
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 10px 30px rgba(16, 42, 86, .08)
+    }
+
+    .links.mobile-open {
+      display: flex;
+      position: absolute;
+      top: 78px;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background: #fff;
+      flex-direction: column;
+      align-items: stretch;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .faq details[open] {
+      background: #f4f9ff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 8px 0
+    }
+
+    .faq details {
+      transition: background .2s ease
+    }
+
+    .faq summary::marker {
+      color: var(--blue)
+    }
+
+    .wa {
+      animation: waPulse 2.5s infinite
+    }
+
+    @keyframes waPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .18)
+      }
+
+      50% {
+        box-shadow: 0 10px 30px rgba(32, 185, 101, .35), 0 0 0 9px rgba(32, 185, 101, .08)
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *:before,
+      *:after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important
+      }
+
+      .reveal,
+      .reveal-card {
+        opacity: 1;
+        transform: none
+      }
+    }
+
+    /* =========================================
+   BACKGROUND RHYTHM / SECTION COLORS
+========================================= */
+
+    /* Section tutorial: biru muda */
+    .tutorial-section {
+      background:
+        radial-gradient(circle at 12% 18%,
+          rgba(21, 153, 229, 0.10),
+          transparent 34%),
+        #f3f8fe;
+    }
+
+    /* Section harga: putih */
+    .pricing-section {
+      background: #ffffff;
+    }
+
+    /* Section tentang: biru muda */
+    .about-section {
+      background:
+        linear-gradient(180deg,
+          #f3f8fe 0%,
+          #ffffff 100%);
+    }
+
+    /* Section workflow: putih */
+    .workflow-section {
+      background: #ffffff;
+    }
+
+    /* Section modul: biru muda */
+    .modules-section {
+      background: #f3f8fe;
+    }
+
+    /* Section dashboard: putih */
+    .dashboard-section {
+      background: #ffffff;
+    }
+
+    /* Section pain points: biru muda */
+    .pain-section {
+      background: #f3f8fe;
+    }
+
+    /* Section CTA: biru gelap */
+    .cta-section {
+      background: #102a56;
+    }
+
+    .tutorial-section .section-head span {
+      color: var(--blue);
+    }
+
+    .tutorial-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .tutorial-copy {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 35px;
+    }
+
+    .tutorial-badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eaf5ff;
+      color: var(--blue);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+    }
+
+    .tutorial-copy h3 {
+      margin: 20px 0 12px;
+      color: var(--navy);
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .tutorial-copy p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tutorial-video {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border: 8px solid white;
+      border-radius: 24px;
+      background: var(--navy);
+      box-shadow:
+        0 25px 70px rgba(16, 42, 86, 0.18),
+        0 5px 20px rgba(16, 42, 86, 0.08);
+    }
+
+    .tutorial-video iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 950px) {
+      .tutorial-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .tutorial-copy {
+        padding: 25px;
+      }
+
+      .tutorial-copy h3 {
+        font-size: 23px;
+      }
+
+      .tutorial-video {
+        border-width: 4px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="container navin"><a href="#home"><img class="logo" src="assets/logo-moobi-klinik.jpeg"
+          alt="Moobi Klinik"></a>
+      <div class="links"><a href="#fitur">Fitur</a><a href="#cara">Cara Kerja</a><a href="#tutorial">Tutorial</a><a href="#harga">Harga</a><a
+          href="#tentang">Tentang</a><a href="#faq">FAQ</a><a class="btn primary" href="#demo">Jadwalkan Demo →</a>
+      </div><button class="menu"
+        onclick="document.querySelector('.links').style.display=document.querySelector('.links').style.display==='flex'?'none':'flex'">☰</button>
+    </div>
+  </nav>
+  <header id="home" class="hero reveal">
+    <div class="container heroGrid">
+      <div>
+        <div class="eyebrow">● Healthcare Technology · Cloud SaaS</div>
+        <h1>Klinik Lebih Rapi, Pasien Lebih Puas.</h1>
+        <p>Platform manajemen klinik end-to-end. Terintegrasi BPJS & SATUSEHAT. Pilih paket, bayar, dan langsung
+          operasional — semuanya dari website.</p>
+        <div class="actions"><a class="btn primary" href="#harga">Mulai Sekarang →</a><a class="btn outline"
+            href="#demo">Jadwalkan Demo</a></div>
+        <div class="trust"><span>✓ Terdaftar PSE Kominfo</span><span>✓ RME Kemenkes</span><span>✓ BPJS Bridging
+            Lengkap</span></div>
+      </div>
+      <div class="heroVisual parallax-card"><img class="dashboard" src="assets/dashboard.png"
+          alt="Preview dashboard sistem manajemen klinik">
+        <div class="floating">☁ Cloud-based · Akses dari mana saja</div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+      </div>
+    </div>
+  </header>
+  <section class="stats reveal">
+    <div class="container statsGrid">
+      <div class="stat"><strong>500+</strong><span>Faskes aktif di Indonesia</span></div>
+      <div class="stat"><strong>27</strong><span>Modul terintegrasi</span></div>
+      <div class="stat"><strong>2005</strong><span>PT ABSystem berdiri</span></div>
+      <div class="stat"><strong>24/7</strong><span>Technical support</span></div>
+    </div>
+  </section>
+  <section class="section soft reveal">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Masalah yang Sering Dialami Klinik</h2>
+        <p>Moobi Klinik hadir untuk menyelesaikan ini semua — dalam satu sistem.</p>
+      </div>
+      <div class="painGrid">
+        <div class="card reveal-card">
+          <div class="icon">❌</div>
+          <h3>Klaim BPJS Sering Ditolak</h3>
+          <p>SEP tidak sinkron, data salah format — klaim terbuang sia-sia.</p>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">⏳</div>
+          <h3>Antrian & Pendaftaran Manual</h3>
+          <p>Staf kewalahan, pasien menunggu lama, data pasien sering dobel.</p>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">📊</div>
+          <h3>Laporan Tidak Real-Time</h3>
+          <p>Owner tidak bisa memantau performa klinik dari luar lokasi.</p>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">💊</div>
+          <h3>Stok Obat Tidak Terkontrol</h3>
+          <p>Obat expired tidak terdeteksi, pembelian berulang tidak efisien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="fitur" class="section reveal">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Satu Platform untuk Seluruh Operasional Klinik</h2>
+        <p>Dari pendaftaran, rekam medis, farmasi, hingga laporan — semua saling terhubung.</p>
+      </div>
+      <div class="moduleGrid">
+        <div class="card reveal-card">
+          <div class="icon">🏥</div>
+          <h3>Pendaftaran & Antrian</h3>
+          <p>Kiosk mandiri, display antrian digital, tiket QR, dan input pasien BPJS maupun umum.</p><a
+            href="#harga">Lihat fitur →</a>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">📋</div>
+          <h3>Rekam Medis Elektronik</h3>
+          <p>E-RME, ICD-10, vital sign, assessment, terapi, riwayat lengkap, dan SATUSEHAT-ready.</p><a
+            href="#harga">Lihat fitur →</a>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">🔵</div>
+          <h3>BPJS Bridging Lengkap</h3>
+          <p>Antrol, iCare, Vclaim, Eclaim, SEP, validasi kepesertaan, dan alur klaim.</p><a href="#harga">Lihat fitur
+            →</a>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">💊</div>
+          <h3>Farmasi & Apotek</h3>
+          <p>Master obat, supplier, stok real-time, resep digital, expired alert, dan laporan.</p><a href="#harga">Lihat
+            fitur →</a>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">🔬</div>
+          <h3>Laboratorium / LIS</h3>
+          <p>Barcode sample, koneksi alat lab, hasil pemeriksaan, dan integrasi ke rekam medis.</p><a
+            href="#harga">Lihat fitur →</a>
+        </div>
+        <div class="card reveal-card">
+          <div class="icon">📈</div>
+          <h3>Dashboard & Laporan</h3>
+          <p>Monitoring operasional, laporan klinik, laporan keuangan, dan export PDF/Excel/Word.</p><a
+            href="#harga">Lihat fitur →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section soft reveal">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">Connected Healthcare Ecosystem</div>
+        <h2>Terhubung dengan Ekosistem Kesehatan Digital</h2>
+        <p>Healmity sebagai platform SIM FKTP dan Rekam Medis Elektronik berbasis cloud mendukung integrasi proses
+          operasional klinik secara terstruktur.</p>
+        <ul class="checklist">
+          <li><b>BPJS PCare:</b> registrasi kunjungan, tindakan, diagnosis ICD-10, dan rujukan.</li>
+          <li><b>BPJS HFIS:</b> sinkronisasi profil tenaga medis dan jadwal praktik.</li>
+          <li><b>Mobile JKN:</b> pengambilan nomor antrean pasien secara mandiri.</li>
+          <li><b>SATUSEHAT:</b> pengiriman resume medis elektronik berstandar FHIR.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Alur Layanan Pasien</h3>
+        <ul class="checklist">
+          <li>Pasien daftar melalui loket, sistem, atau antrean digital.</li>
+          <li>Petugas melakukan validasi dan check-in.</li>
+          <li>Dokter mengisi vital sign, keluhan, diagnosis, terapi, dan status pulang.</li>
+          <li>Data rujukan, farmasi, dan laporan diproses dalam sistem terintegrasi.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="cara" class="section reveal">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Langsung Pakai dalam 3 Langkah</h2>
+        <p>Tidak perlu instalasi. Tidak perlu tim IT. Cukup daftar online.</p>
+      </div>
+      <div class="workflow">
+        <div class="step reveal-card"><b>1</b>
+          <h3>Pilih Paket</h3>
+          <p>Pilih paket Medium atau Pro sesuai kebutuhan klinik Anda.</p>
+        </div>
+        <div class="step reveal-card"><b>2</b>
+          <h3>Bayar Online</h3>
+          <p>Bayar melalui kartu, transfer bank, Virtual Account, atau QRIS melalui Payment Gateway Moobi.</p>
+        </div>
+        <div class="step reveal-card"><b>3</b>
+          <h3>Langsung Operasional</h3>
+          <p>Login ke dashboard, input data klinik, dan mulai menjalankan operasional digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section tutorial-section" id="tutorial">
+    <div class="container">
+
+      <div class="section-head">
+        <div class="eyebrow">Tutorial & Panduan</div>
+
+        <h2>
+          Mulai dengan Panduan yang
+          <span>Mudah Dipahami.</span>
+        </h2>
+
+        <p>
+          Pelajari cara menggunakan Moobi Klinik mulai dari setup klinik,
+          pendaftaran pasien, rekam medis, farmasi, hingga laporan operasional.
+        </p>
+      </div>
+
+      <div class="tutorial-layout">
+
+        <div class="tutorial-copy">
+          <div class="tutorial-badge">PANDUAN PENGGUNAAN MOOBI KLINIK</div>
+
+          <h3>
+            Kenali alur kerja Moobi Klinik dalam beberapa menit.
+          </h3>
+
+          <p>
+            Video tutorial ini membantu admin, dokter, perawat, staf farmasi,
+            kasir, dan pengelola klinik memahami penggunaan sistem secara bertahap.
+          </p>
+
+          <ul class="checks">
+            <li>Setup awal klinik</li>
+            <li>Pendaftaran dan antrean pasien</li>
+            <li>Rekam medis elektronik</li>
+            <li>Farmasi dan transaksi</li>
+            <li>Laporan dan dashboard</li>
+          </ul>
+        </div>
+
+        <div class="tutorial-video">
+          <iframe src="https://drive.google.com/file/d/1bRchAeGyr2JoD7mogd5DVede8FyXdgUB/preview"
+            title="Video Tutorial Penggunaan Moobi Klinik" allow="autoplay" allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+  <section id="harga" class="section reveal">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Harga Transparan, Langsung Aktif</h2>
+        <p>Pilih paket yang sesuai dengan kebutuhan klinik Anda. Tidak ada biaya setup tersembunyi.</p>
+      </div>
+      <div class="pricing">
+        <div class="price reveal-card">
+          <h3>Medium</h3>
+          <p class="desc">Untuk klinik dengan kebutuhan dasar & menengah.</p>
+          <div class="amount">Rp 2.000 <span class="small">/ kunjungan RJ</span></div>
+          <div class="amount">Rp 3.000 <span class="small">/ kunjungan RI</span></div>
+          <p><b>atau Rp 300.000 / bulan</b></p>
+          <ul>
+            <li>Manajemen & antrian</li>
+            <li>Rekam medis elektronik</li>
+            <li>BPJS Bridging: Antrol, iCare, Vclaim, Eclaim</li>
+            <li>SATUSEHAT Integration</li>
+            <li>Farmasi & apotek</li>
+            <li>Penunjang medis</li>
+            <li>Billing, kasir, akuntansi & keuangan</li>
+            <li>Kepegawaian & HRD</li>
+            <li>Hutang piutang & aset</li>
+            <li>Dashboard & laporan real-time</li>
+          </ul><a class="btn primary" href="#demo">Pilih Medium →</a>
+        </div>
+        <div class="price popular reveal-card">
+          <div class="ribbon">MOST POPULAR</div>
+          <h3>Pro</h3>
+          <p class="desc">Untuk klinik yang ingin fitur lengkap & online system.</p>
+          <div class="amount">Rp 3.000 <span class="small">/ kunjungan RJ</span></div>
+          <div class="amount">Rp 4.000 <span class="small">/ kunjungan RI</span></div>
+          <p><b>atau Rp 500.000 / bulan</b></p>
+          <ul>
+            <li>Semua fitur Medium</li>
+            <li>LIS / Laboratorium Information System</li>
+            <li>Website klinik dengan domain sendiri</li>
+            <li>Mobile App Pasien untuk booking & hasil lab</li>
+            <li>Online Booking System</li>
+            <li>Mobile App Back Office untuk owner</li>
+            <li>Dashboard multi-cabang</li>
+          </ul><a class="btn primary" href="#demo">Pilih Pro →</a>
+        </div>
+      </div>
+      <div class="compare">
+        <table>
+          <thead>
+            <tr>
+              <th>Perbandingan Fitur</th>
+              <th>Medium</th>
+              <th>Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Manajemen & Antrian</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Rekam Medis Elektronik</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>BPJS Bridging & SATUSEHAT</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Farmasi, Billing, Akuntansi, HRD</td>
+              <td class="yes">✓</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>LIS</td>
+              <td class="no">✕</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Website Klinik Domain Sendiri</td>
+              <td class="no">✕</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Mobile App Pasien</td>
+              <td class="no">✕</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Online Booking</td>
+              <td class="no">✕</td>
+              <td class="yes">✓</td>
+            </tr>
+            <tr>
+              <td>Mobile App Back Office</td>
+              <td class="no">✕</td>
+              <td class="yes">✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:18px">RJ = Rawat Jalan · RI = Rawat Inap. Paket bulanan flat berlaku untuk
+        semua kunjungan tanpa batas dalam satu bulan. Semua paket berbasis cloud.</p>
+    </div>
+  </section>
+  <section id="tentang" class="section soft reveal">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">About Moobi Klinik</div>
+        <h2>Technology that connects people, processes, and better healthcare.</h2>
+        <p>Moobi Klinik adalah platform manajemen klinik berbasis cloud untuk menghubungkan staf, dokter, pasien, dan
+          manajemen dalam satu sistem yang praktis, andal, modern, dan terintegrasi.</p>
+        <p>PT ABSystem Technology Solution didirikan di Surakarta pada 08 Juli 2005 dan mengembangkan solusi teknologi
+          untuk kesehatan, hospitality, pendidikan, retail, serta pemerintahan.</p>
+      </div>
+      <div class="card">
+        <h3>Legalitas & Kepercayaan</h3>
+        <ul class="checklist">
+          <li>Terdaftar PSE di Kemenkominfo.</li>
+          <li>Terdaftar sebagai penyedia RME di platform SATUSEHAT Kemenkes.</li>
+          <li>Bridging BPJS Kesehatan: Antrol, iCare, Vclaim, Eclaim.</li>
+          <li>Support WhatsApp, telepon, dan remote AnyDesk.</li>
+        </ul>
+        <p><b>Kontak:</b><br>0811-815-015<br>amri@moobi.id<br>www.moobi.id</p>
+      </div>
+    </div>
+  </section>
+  <section id="demo" class="section reveal">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Siap Digitalisasi Klinik Anda?</h2>
+          <p>Jadwalkan demo 30 menit bersama tim kami — gratis, tanpa komitmen.</p>
+        </div>
+        <div class="actions"><a class="btn cyan" href="mailto:amri@moobi.id?subject=Jadwal Demo Moobi Klinik">Jadwalkan
+            Demo Gratis →</a><a class="btn outline" href="https://wa.me/62811815015">Chat WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="section soft reveal">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Pertanyaan yang Sering Diajukan</h2>
+        <p>Informasi dasar sebelum klinik mulai menggunakan Moobi Klinik.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Apakah ada biaya setup?</summary>
+          <p>Tidak ada biaya setup. Pilih paket, lakukan pembayaran, dan sistem dapat diaktifkan sesuai proses
+            onboarding.</p>
+        </details>
+        <details>
+          <summary>Bisa ganti paket?</summary>
+          <p>Ya. Upgrade atau downgrade dapat dilakukan dan perubahan berlaku pada siklus billing berikutnya.</p>
+        </details>
+        <details>
+          <summary>Metode pembayaran apa saja?</summary>
+          <p>Kartu kredit/debit, transfer bank atau Virtual Account BCA, Mandiri, BNI, dan QRIS melalui Payment Gateway
+            Moobi.</p>
+        </details>
+        <details>
+          <summary>Apakah ada kontrak jangka panjang?</summary>
+          <p>Tidak. Moobi Klinik berbasis langganan bulanan dan dapat dihentikan sesuai ketentuan layanan.</p>
+        </details>
+        <details>
+          <summary>Apakah mendukung klinik multi-cabang?</summary>
+          <p>Ya, paket Pro mendukung kebutuhan online system dan monitoring multi-cabang. Hubungi tim Moobi untuk
+            penawaran khusus.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+  <footer class="footer reveal">
+    <div class="container">
+      <div class="footerGrid">
+        <div><img class="logo" src="assets/logo-moobi-klinik.jpeg" alt="Moobi Klinik">
+          <p>Klinik Lebih Rapi, Pasien Lebih Puas.</p>
+          <p>Platform manajemen klinik end-to-end berbasis cloud.</p>
+        </div>
+        <div>
+          <h4>Produk</h4><a href="#fitur">Fitur & Modul</a><a href="#harga">Harga & Paket</a><a href="#cara">Cara
+            Kerja</a><a href="#demo">Jadwalkan Demo</a>
+        </div>
+        <div>
+          <h4>Perusahaan</h4><a href="#tentang">Tentang Kami</a><a href="#faq">FAQ</a><a
+            href="mailto:amri@moobi.id">Kontak</a>
+        </div>
+        <div>
+          <h4>Hubungi Kami</h4>
+          <p>WA: 0811-815-015</p>
+          <p>Email: amri@moobi.id</p>
+          <p>Instagram: @moobiklinik</p>
+          <p>LinkedIn: Moobi Klinik</p>
+        </div>
+      </div>
+      <div class="bottom"><span>© 2026 PT ABSystem Technology Solution</span><span>Privacy Policy · Syarat &
+          Ketentuan</span></div>
+    </div>
+  </footer><a class="wa" href="https://wa.me/62811815015">WhatsApp ↗</a>
+
+  <script>
+    (() => {
+      const nav = document.querySelector('.nav');
+      const menu = document.querySelector('.menu');
+      const links = document.querySelector('.links');
+      menu?.addEventListener('click', () => links?.classList.toggle('mobile-open'));
+      links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('mobile-open')));
+      window.addEventListener('scroll', () => nav?.classList.toggle('scrolled', window.scrollY > 12), { passive: true });
+
+      const revealItems = document.querySelectorAll('.reveal,.reveal-card');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target) } }), { threshold: .12 });
+        revealItems.forEach(el => io.observe(el));
+      } else revealItems.forEach(el => el.classList.add('is-visible'));
+
+      const counters = [...document.querySelectorAll('.stat strong')];
+      const counterObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target; if (el.dataset.done) return; el.dataset.done = '1';
+        const raw = el.textContent.trim(); const match = raw.match(/^(\d+)/); if (!match) return;
+        const end = Number(match[1]), suffix = raw.replace(/^\d+/, ''); let start = 0; const duration = 1100; const t0 = performance.now();
+        const tick = now => { const p = Math.min((now - t0) / duration, 1); const eased = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(start + (end - start) * eased) + suffix; if (p < 1) requestAnimationFrame(tick) }; requestAnimationFrame(tick);
+      }), { threshold: .7 }) : null;
+      counters.forEach(el => counterObserver ? counterObserver.observe(el) : null);
+
+      const visual = document.querySelector('.parallax-card');
+      if (visual && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        visual.addEventListener('pointermove', e => { const r = visual.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5; const y = (e.clientY - r.top) / r.height - .5; visual.style.transform = `rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-3px)` });
+        visual.addEventListener('pointerleave', () => visual.style.transform = '');
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href')); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }) }
+      }));
+    })();
+  </script>
+</body>
+
+</html>
